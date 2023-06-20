@@ -37,7 +37,7 @@ function displayActiveStatus(username) {
         var tens = Math.floor(number / 10);
         var ones = number % 10;
         numberText = tensDigits[tens - 1] + ' ' + singleDigits[ones - 1];
-      }
+      } 
     } else numberText = 'Düzgün bir rəqəm daxil edin (1 ilə 99 arasında)';
     
     console.log(numberText);
@@ -136,3 +136,83 @@ function displayActiveStatus(username) {
   console.log(numCounter("css")); 
   console.log(numCounter("javascript"));
   
+
+
+
+  // task 4 with switch case
+
+
+  function numberToText(number) {
+    var text = "";
+    switch (number) {
+        case 1:
+            text = "bir";
+            break;
+        case 2:
+            text = "iki";
+            break;
+        case 3:
+            text = "üç";
+            break;
+        case 4:
+            text = "dörd";
+            break;
+        case 5:
+            text = "beş";
+            break;
+        case 6:
+            text = "altı";
+            break;
+        case 7:
+            text = "yeddi";
+            break;
+        case 8:
+            text = "səkkiz";
+            break;
+        case 9:
+            text = "doqquz";
+            break;
+        case 10:
+            text = "on";
+            break;
+        case 20:
+            text = "iyirmi";
+            break;
+        case 30:
+            text = "otuz";
+            break;
+        case 40:
+            text = "qırx";
+            break;
+        case 50:
+            text = "əlli";
+            break;
+        case 60:
+            text = "altmış";
+            break;
+        case 70:
+            text = "yetmiş";
+            break;
+        case 80:
+            text = "səksən";
+            break;
+        case 90:
+            text = "doxsan";
+            break;
+        default:
+          if (number > 10 && number < 20) {
+            var remainder = number - 10;
+            text = "on " + numberToText(remainder);
+        } else if (number > 20 && number < 100) {
+            var tens = Math.floor(number / 10) * 10;
+            var ones = number % 10;
+            text = numberToText(tens) + " " + numberToText(ones);
+        }
+            break;
+    }
+    return text;
+}
+var userInput = prompt("1 ilə 99 arasında bir rəqəm daxil edin:");
+var number = parseInt(userInput, 10);
+var text = numberToText(number);
+console.log(text);
